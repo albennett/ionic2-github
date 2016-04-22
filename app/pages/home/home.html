@@ -1,16 +1,25 @@
 <ion-navbar *navbar>
-  <ion-title>
-    Home
-  </ion-title>
+    <ion-title>
+        GitHub
+    </ion-title>
 </ion-navbar>
 
 <ion-content class="home">
-  <ion-card>
-    <ion-card-header>
-      Card Header
-    </ion-card-header>
-    <ion-card-content>
-      Hello World
-    </ion-card-content>
-  </ion-card>
+    <ion-list inset>
+        <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input [(ngModel)]="username" type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button block (click)="getRepos()">Search</button>
+    </div>
+    <ion-card *ngFor="#repo of foundRepos">
+        <ion-card-header>
+            {{ repo.name }}
+        </ion-card-header>
+        <ion-card-content>
+            {{ repo.description }}
+        </ion-card-content>
+    </ion-card>
 </ion-content>
